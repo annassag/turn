@@ -30,7 +30,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: yellow;
+        background-color: red;
         border-color: transparent;
         z-index: 1;
       }
@@ -118,20 +118,20 @@
         myPoint.style.opacity = 0;
       } else if (pointDegree) {
         myPoint.style.opacity = 1;
+        myPoint.style.background = "pink";
       }
     }
 
-    let pointDegree =0;
+    let pointDegree;
 
     function locationHandler(position) {
       const { latitude, longitude } = position.coords;
+      pointDegree = calcDegreeToPoint(latitude, longitude);
 
       if (pointDegree < 0) {
         pointDegree = pointDegree + 360;
       }
     }
-
-    console.log(pointDegree);
 
     function calcDegreeToPoint(latitude, longitude) {
       // Qibla geolocation
