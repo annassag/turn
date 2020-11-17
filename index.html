@@ -111,8 +111,8 @@
       // ±15 degree
       if (
         (pointDegree < Math.abs(compass) &&
-          pointDegree + 75 > Math.abs(compass)) ||
-        pointDegree > Math.abs(compass + 75) ||
+          pointDegree + 15 > Math.abs(compass)) ||
+        pointDegree > Math.abs(compass + 15) ||
         pointDegree < Math.abs(compass)
       ) {
         myPoint.style.opacity = 0;
