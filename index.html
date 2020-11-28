@@ -30,7 +30,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: blue;
+        background-color: yellow;
         border-color: transparent;
         z-index: 1;
       }
@@ -111,14 +111,14 @@
       // ±15 degree
       if (
         (pointDegree < Math.abs(compass) &&
-          pointDegree + 50 > Math.abs(compass)) ||
-        pointDegree > Math.abs(compass + 50) ||
+          pointDegree + 100 > Math.abs(compass)) ||
+        pointDegree > Math.abs(compass + 100) ||
         pointDegree < Math.abs(compass)
       ) {
         myPoint.style.opacity = 0;
       } else if (pointDegree) {
         myPoint.style.opacity = 1;
-        myPoint.style.background = "black";
+        myPoint.style.background = "grey";
       }
     }
 
