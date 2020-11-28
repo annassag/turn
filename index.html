@@ -14,6 +14,20 @@
         background-color: black;
       }
 
+        .bg {
+      background-image: url("clean.jpg");
+      z-index: 10;
+      background-size: 100%;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
       .compass {
         position: relative;
         width: 320px;
@@ -104,6 +118,7 @@
     </style>
   </head>
   <body>
+    <div class="bg"></div>
     <button class="start-btn">Listen</button>
     <button class="start-btn2">Read</button>
     <div class="compass">
