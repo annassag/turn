@@ -14,7 +14,7 @@
         background-color: black;
       }
 
-        .bg {
+        #bg {
       background-image: url("clean2.jpg");
       z-index: 10;
       position: fixed;
@@ -60,7 +60,7 @@
         transform: translate(-50%, -50%);
         transition: transform 0.1s ease-out;
         background: url(clock-1.png)
-          center no-repeat;
+        center no-repeat;
         background-size: contain;
       }
 
@@ -78,9 +78,10 @@
         position: fixed;
         top: 10px;
         font-size: 24px;
+        font-family: 'Ladyhands', sans-serif;
         width: 100px;
         margin: 0;
-        padding: 0;
+        padding: 3px 0 0 0;
         text-align: center;
         text-decoration: none;
 /*        height: 20px;*/
@@ -112,12 +113,15 @@
 
       }
 
-
+@font-face {
+    font-family: 'Ladyhands';
+    src:  url('Ladyhands-Regular.woff2') format('woff2');
 }
+
     </style>
   </head>
   <body>
-    <div class="bg"></div>
+    <div id="bg"></div>
     <button class="start-btn">Listen</button>
     <button class="start-btn2">Read</button>
     <div class="compass">
@@ -211,5 +215,12 @@
     }
 
     init();
+
+  document.addEventListener("click", start);
+
+  function start() {
+    var x = document.getElementById("bg"); 
+    if (x && x.style) x.style.display = "none";
+  }
   </script>
 </html>
