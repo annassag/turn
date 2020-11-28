@@ -30,7 +30,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: red;
+        background-color: blue;
         border-color: transparent;
         z-index: 1;
       }
@@ -111,14 +111,14 @@
       // ±15 degree
       if (
         (pointDegree < Math.abs(compass) &&
-          pointDegree + 15 > Math.abs(compass)) ||
-        pointDegree > Math.abs(compass + 15) ||
+          pointDegree + 50 > Math.abs(compass)) ||
+        pointDegree > Math.abs(compass + 50) ||
         pointDegree < Math.abs(compass)
       ) {
         myPoint.style.opacity = 0;
       } else if (pointDegree) {
         myPoint.style.opacity = 1;
-        myPoint.style.background = "pink";
+        myPoint.style.background = "black";
       }
     }
 
@@ -126,33 +126,33 @@
 
     function locationHandler(position) {
       const { latitude, longitude } = position.coords;
-      pointDegree = 0;
+      pointDegree = calcDegreeToPoint(latitude, longitude);
 
       if (pointDegree < 0) {
         pointDegree = pointDegree + 360;
       }
     }
 
-    // function calcDegreeToPoint(latitude, longitude) {
-    //   // Qibla geolocation
-    //   const point = {
-    //     lat: 21.422487,
-    //     lng: 39.826206
-    //   };
+    function calcDegreeToPoint(latitude, longitude) {
+      // Qibla geolocation
+      const point = {
+        lat: 21.422487,
+        lng: 39.826206
+      };
 
-    //   const phiK = (point.lat * Math.PI) / 180.0;
-    //   const lambdaK = (point.lng * Math.PI) / 180.0;
-    //   const phi = (latitude * Math.PI) / 180.0;
-    //   const lambda = (longitude * Math.PI) / 180.0;
-    //   const psi =
-    //     (180.0 / Math.PI) *
-    //     Math.atan2(
-    //       Math.sin(lambdaK - lambda),
-    //       Math.cos(phi) * Math.tan(phiK) -
-    //         Math.sin(phi) * Math.cos(lambdaK - lambda)
-    //     );
-    //   return Math.round(psi);
-    // }
+      const phiK = (point.lat * Math.PI) / 180.0;
+      const lambdaK = (point.lng * Math.PI) / 180.0;
+      const phi = (latitude * Math.PI) / 180.0;
+      const lambda = (longitude * Math.PI) / 180.0;
+      const psi =
+        (180.0 / Math.PI) *
+        Math.atan2(
+          Math.sin(lambdaK - lambda),
+          Math.cos(phi) * Math.tan(phiK) -
+            Math.sin(phi) * Math.cos(lambdaK - lambda)
+        );
+      return Math.round(psi);
+    }
 
     init();
   </script>
