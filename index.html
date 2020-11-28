@@ -10,6 +10,7 @@
         display: flex;
         flex-direction: column;
         height: 100vh;
+        background-color: black;
       }
 
       .compass {
@@ -17,7 +18,6 @@
         width: 320px;
         height: 320px;
         border-radius: 50%;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         margin: auto;
       }
 
@@ -38,13 +38,13 @@
       .compass > .compass-circle,
       .compass > .my-point {
         position: absolute;
-        width: 90%;
-        height: 90%;
+        width: 130%;
+        height: 130%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         transition: transform 0.1s ease-out;
-        background: url(clock.png)
+        background: url(clock-1.png)
           center no-repeat;
         background-size: contain;
       }
@@ -111,8 +111,8 @@
       // ±15 degree
       if (
         (pointDegree < Math.abs(compass) &&
-          pointDegree + 100 > Math.abs(compass)) ||
-        pointDegree > Math.abs(compass + 100) ||
+          pointDegree + 15 > Math.abs(compass)) ||
+        pointDegree > Math.abs(compass + 15) ||
         pointDegree < Math.abs(compass)
       ) {
         myPoint.style.opacity = 0;
@@ -122,11 +122,13 @@
       }
     }
 
+
+
     let pointDegree;
 
     function locationHandler(position) {
       const { latitude, longitude } = position.coords;
-      pointDegree = calcDegreeToPoint(latitude, longitude);
+      pointDegree = 0;
 
       if (pointDegree < 0) {
         pointDegree = pointDegree + 360;
