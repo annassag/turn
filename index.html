@@ -30,7 +30,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: red;
+        background-color: blue;
         border-color: transparent;
         z-index: 1;
       }
@@ -126,19 +126,19 @@
 
     function locationHandler(position) {
       const { latitude, longitude } = position.coords;
-      pointDegree = calcDegreeToPoint(latitude, longitude);
+      pointDegree = getCurrentPosition(latitude, longitude);
 
       if (pointDegree < 0) {
         pointDegree = pointDegree + 360;
       }
     }
 
-    function calcDegreeToPoint(latitude, longitude) {
-      // Qibla geolocation
-      const point = {
-        lat: 21.422487,
-        lng: 39.826206
-      };
+    // function calcDegreeToPoint(latitude, longitude) {
+    //   // Qibla geolocation
+    //   const point = {
+    //     lat: 21.422487,
+    //     lng: 39.826206
+    //   };
 
       const phiK = (point.lat * Math.PI) / 180.0;
       const lambdaK = (point.lng * Math.PI) / 180.0;
