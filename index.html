@@ -36,7 +36,7 @@
         top: -5%;
       }
 
-      .compass > .arrow {
+      .compass > #arrow {
         position: absolute;
         width: 25px;
         height: 25px;
@@ -125,7 +125,7 @@
     <button class="start-btn">Listen</button>
     <button class="start-btn2">Read</button>
     <div class="compass">
-      <div class="arrow"></div>
+      <div id="arrow"></div>
       <div class="compass-circle"></div>
       <div class="my-point"></div>
     </div>
@@ -169,7 +169,8 @@
       console.log(compass);
       
       if ( compass < 100) {
-        myPoint.style.color = "blue";
+        document.getElementById(arrow).style.color = "blue";
+
       }
 
        }
