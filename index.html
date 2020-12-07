@@ -169,20 +169,11 @@
       console.log(compass);
       
       // ±15 degree
-      if (
-        (pointDegree < Math.abs(compass) &&
-          pointDegree + 15 > Math.abs(compass)) ||
-        pointDegree > Math.abs(compass + 15) ||
-        pointDegree < Math.abs(compass)
-      ) {
-        myPoint.style.opacity = 0;
-      } else if (pointDegree) {
-        myPoint.style.opacity = 1;
-        myPoint.style.background = "grey";
+      if (150 compass > 100) {
+        myPoint.style.color = "blue";
       }
-    }
-
-
+       }
+       
 
     let pointDegree;
 
