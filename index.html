@@ -141,7 +141,7 @@
 
     function init() {
       startBtn.addEventListener("click", startCompass);
-      // navigator.geolocation.getCurrentPosition(locationHandler);
+      navigator.geolocation.getCurrentPosition(locationHandler);
 
       if (!isIOS) {
         window.addEventListener("deviceorientationabsolute", handler, true);
@@ -168,62 +168,81 @@
 
       console.log(compass);
       
-      if ( compass < 100) {
+      if ( compass < 45) {
         document.getElementById("arrow").style.backgroundColor = "blue";
 
       }
 
-      if ( compass < 100) {
-        document.getElementById("arrow").style.backgroundColor = "blue";
+      if ( compass < 90) {
+        document.getElementById("arrow").style.backgroundColor = "white";
 
       }
 
-      if ( compass < 100) {
-        document.getElementById("arrow").style.backgroundColor = "blue";
+      if ( compass < 135) {
+        document.getElementById("arrow").style.backgroundColor = "green";
 
       }
 
-      if ( compass < 100) {
-        document.getElementById("arrow").style.backgroundColor = "blue";
+      if ( compass < 180) {
+        document.getElementById("arrow").style.backgroundColor = "red";
 
       }
 
+      if ( compass < 225) {
+        document.getElementById("arrow").style.backgroundColor = "gray";
+
+      }
+
+      if ( compass < 270) {
+        document.getElementById("arrow").style.backgroundColor = "orange";
+
+      }
+
+      if ( compass < 315) {
+        document.getElementById("arrow").style.backgroundColor = "purple";
+
+      }
+
+      if ( compass < 360) {
+        document.getElementById("arrow").style.backgroundColor = "brown";
+
+      }
 
 
        }
 
 
-    // let pointDegree;
+    let pointDegree;
 
-    // function locationHandler(position) {
-    //   const { latitude, longitude } = position.coords;
-    //   pointDegree = 0;
+    function locationHandler(position) {
+      const { latitude, longitude } = position.coords;
+      pointDegree = 0;
 
-    //   if (pointDegree < 0) {
-    //     pointDegree = pointDegree + 360;
-    //   }
-    // }
+      if (pointDegree < 0) {
+        pointDegree = pointDegree + 360;
+      }
+    }
 
-    // function calcDegreeToPoint(latitude, longitude) {
-    //   // Qibla geolocation
-    //   const point = {
-    //     lat: 21.422487,
-    //     lng: 39.826206
-    //   };
+    function calcDegreeToPoint(latitude, longitude) {
+      // Qibla geolocation
+      const point = {
+        lat: 21.422487,
+        lng: 39.826206
+      };
 
-    //   const phiK = (point.lat * Math.PI) / 180.0;
-    //   const lambdaK = (point.lng * Math.PI) / 180.0;
-    //   const phi = (latitude * Math.PI) / 180.0;
-    //   const lambda = (longitude * Math.PI) / 180.0;
-    //   const psi =
-    //     (180.0 / Math.PI) *
-    //     Math.atan2(
-    //       Math.sin(lambdaK - lambda),
-    //       Math.cos(phi) * Math.tan(phiK) -
-    //         Math.sin(phi) * Math.cos(lambdaK - lambda)
-    //     );
-    //   return Math.round(psi);
-    // }
+      const phiK = (point.lat * Math.PI) / 180.0;
+      const lambdaK = (point.lng * Math.PI) / 180.0;
+      const phi = (latitude * Math.PI) / 180.0;
+      const lambda = (longitude * Math.PI) / 180.0;
+      const psi =
+        (180.0 / Math.PI) *
+        Math.atan2(
+          Math.sin(lambdaK - lambda),
+          Math.cos(phi) * Math.tan(phiK) -
+            Math.sin(phi) * Math.cos(lambdaK - lambda)
+        );
+      return Math.round(psi);
+    }
 
     init();
 
