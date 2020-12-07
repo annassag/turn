@@ -141,7 +141,7 @@
 
     function init() {
       startBtn.addEventListener("click", startCompass);
-      navigator.geolocation.getCurrentPosition(locationHandler);
+      // navigator.geolocation.getCurrentPosition(locationHandler);
 
       if (!isIOS) {
         window.addEventListener("deviceorientationabsolute", handler, true);
@@ -193,16 +193,16 @@
        }
 
 
-    let pointDegree;
+    // let pointDegree;
 
-    function locationHandler(position) {
-      const { latitude, longitude } = position.coords;
-      pointDegree = 0;
+    // function locationHandler(position) {
+    //   const { latitude, longitude } = position.coords;
+    //   pointDegree = 0;
 
-      if (pointDegree < 0) {
-        pointDegree = pointDegree + 360;
-      }
-    }
+    //   if (pointDegree < 0) {
+    //     pointDegree = pointDegree + 360;
+    //   }
+    // }
 
     // function calcDegreeToPoint(latitude, longitude) {
     //   // Qibla geolocation
