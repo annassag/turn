@@ -61,7 +61,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: red;
+        background-color: pink;
         border-color: transparent;
         z-index: 1;
       }
@@ -171,9 +171,9 @@
     </style>
   </head>
   <body>
-    <video autoplay muted loop id="video">
-      <source src="film.mp4" type="video/mp4">
-    </video>
+  <video autoplay loop muted playsinline class="video-background ">
+  <source src="film.mp4" type="video/mp4">
+  </video>
     <div id="bg"></div>
     <button class="start-btn">Listen</button>
     <button class="start-btn2" onclick="window.location.href='clock-read.html'">Read</button>
