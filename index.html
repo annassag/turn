@@ -9,7 +9,7 @@
       body {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
         background-color: black;
         overflow: hidden;
@@ -252,6 +252,18 @@
     }
 
     init();
+
+    document.addEventListener('orientationchange', () => {
+  document.documentElement.style.height = `initial`;
+  setTimeout(() => {
+    document.documentElement.style.height = `100%`;
+      setTimeout(() => {
+        // this line prevents the content
+        // from hiding behind the address bar
+        window.scrollTo(0, 1);
+      }, 500);
+  }, 500);
+});
 
   // document.addEventListener("click", start);
 
