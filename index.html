@@ -40,6 +40,7 @@
       background-size: contain;
       background-position: bottom;
       overflow: hidden;
+      z-index: -50;
   }
 
       .compass {
@@ -141,7 +142,7 @@
     </style>
   </head>
   <body>
-    <div id="bg"></div>
+
     <button class="start-btn">Listen</button>
     <button class="start-btn2" onclick="window.location.href='clock-read.html'">Read</button>
     <div class="compass">
@@ -149,7 +150,7 @@
       <div class="compass-circle"></div>
       <div class="my-point"></div>
     </div>
-    
+      <div id="bg"></div>
   </body>
   <script>
     const compassCircle = document.querySelector(".compass-circle");
