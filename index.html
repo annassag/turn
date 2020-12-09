@@ -13,8 +13,6 @@
         width: 100vw;
         background-color: black;
         overflow: hidden;
-        margin: 0;
-        padding: 0;
       }
 
         #bg {
@@ -126,7 +124,7 @@
     </style>
   </head>
   <body>
-    <div id="bg"></div>
+<!--     <div id="bg"></div> -->
     <button class="start-btn">Listen</button>
     <button class="start-btn2" onclick="location.href='clock-read.html'">Read</button>
     <div class="compass">
@@ -251,6 +249,11 @@
 
     init();
 
+  // document.addEventListener("click", start);
 
+  // function start() {
+  //   var x = document.getElementById("bg"); 
+  //   if (x && x.style) x.style.display = "none";
+  // }
   </script>
 </html>
