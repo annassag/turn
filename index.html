@@ -61,7 +61,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: yellow;
+        background-color: pink;
         border-color: transparent;
         z-index: 1;
       }
@@ -78,6 +78,7 @@
         background: url(clock-1.png)
         center no-repeat;
         background-size: contain;
+        z-index: 500;
       }
 
       .compass > .my-point {
@@ -155,8 +156,8 @@
       bottom: 0;
       top: -5%;
       left: 0;
-      z-index: 500;
-      width: 250px;
+      z-index: 400;
+      width: 270px;
       padding: 5px;
       display: block;
       margin: auto;
@@ -251,7 +252,7 @@
       if ( compass > 180) {
         document.getElementById("arrow").style.backgroundColor = "red";
         document.getElementById("text2").innerHTML = "Identifying any missing, lost or damaged materials and immediately notify the supervisor";
-        document.getElementById("video").style.visibility = "hidden";
+        // document.getElementById("video").style.visibility = "hidden";
 
       }
 
@@ -264,7 +265,7 @@
       if ( compass > 270) {
         document.getElementById("arrow").style.backgroundColor = "orange";
         document.getElementById("text2").innerHTML = "Scanning labels to ensure products are shipped to the right destination";
-        document.getElementById("video").style.visibility = "visible";
+        // document.getElementById("video").style.visibility = "visible";
 
       }
 
@@ -276,7 +277,7 @@
       if ( compass > 360) {
         document.getElementById("arrow").style.backgroundColor = "brown";
         document.getElementById("text2").innerHTML = " fjfgjkdsjkgjds dnkgsnjgsjfksdbjksgdbjksdbsd";
-        document.getElementById("video").style.visibility = "hidden";
+        // document.getElementById("video").style.visibility = "hidden";
 
       }
 
