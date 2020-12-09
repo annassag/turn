@@ -49,7 +49,7 @@
         height: 320px;
         border-radius: 50%;
         margin: auto;
-        top: 0%;
+        top: -2%;
       }
 
       .compass > #arrow {
@@ -139,7 +139,7 @@
     padding: 5px 15px;
     position: fixed;
 /*    filter: blur(1.2px);*/
-    top: 80vh;
+    top: 70vh;
     right: 0;
     left: 0;
     font-size: 14px;
@@ -205,72 +205,49 @@
 
       console.log(compass);
 
-      function startBlinkingText() {
-    setInterval(function () { 
-    // calendar();
-    textFunction1();
-    // blink2();
-    }, 5000);
-  }
-
-var i = 0;
-var textBack = [
-"Collecting merchandise from the distribution center and safely transporting materials to the shipping bay", 
-"Receiving and documenting merchandise for delivery or return", 
-"Keeping an inventory of all merchandise entering or exiting the warehouse", 
-"Identifying any missing, lost or damaged materials and immediately notify the supervisor", 
-"Ensuring that all the merchandise is safely and securely packed and labeled for shipping", 
-"Managing all merchandise with appropriate care", 
-"Scanning labels to ensure products are shipped to the right destination"];
-
-function textFunction1() {  
-  if (i >= textBack.length) i = 0;
-   
-  document.getElementById("text2").innerHTML = textBack[i];
-  i++;
-} 
-
 
       
-      // if ( compass > 45) {
-      //   document.getElementById("arrow").style.backgroundColor = "blue";
+      if ( compass > 45) {
+        document.getElementById("arrow").style.backgroundColor = "blue";
+        document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
 
-      // }
+
+      }
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "white";
-        startBlinkingText();
+        document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
 
       }
 
-      // if ( compass > 135) {
-      //   document.getElementById("arrow").style.backgroundColor = "green";
-
-      // }
+      if ( compass > 135) {
+        document.getElementById("arrow").style.backgroundColor = "green";
+        document.getElementById("text2").innerHTML = "Keeping an inventory of all merchandise entering or exiting the warehouse";
+      }
 
       if ( compass > 180) {
         document.getElementById("arrow").style.backgroundColor = "red";
-
+        document.getElementById("text2").innerHTML = "Identifying any missing, lost or damaged materials and immediately notify the supervisor";
       }
 
-      // if ( compass > 225) {
-      //   document.getElementById("arrow").style.backgroundColor = "gray";
-
-      // }
+      if ( compass > 225) {
+        document.getElementById("arrow").style.backgroundColor = "gray";
+        document.getElementById("text2").innerHTML = "Ensuring that all the merchandise is safely and securely packed and labeled for shipping";
+      }
 
       if ( compass > 270) {
         document.getElementById("arrow").style.backgroundColor = "orange";
-
+        document.getElementById("text2").innerHTML = "Scanning labels to ensure products are shipped to the right destination";
       }
 
-      // if ( compass > 315) {
-      //   document.getElementById("arrow").style.backgroundColor = "purple";
-
-      // }
+      if ( compass > 315) {
+        document.getElementById("arrow").style.backgroundColor = "purple";
+        document.getElementById("text2").innerHTML = "Bkkl afjkfbasjk djfbgjksb sgnjgksdngjksdfnjksg sgnjksdgnjksd";
+      }
 
       if ( compass > 360) {
         document.getElementById("arrow").style.backgroundColor = "brown";
-
+        document.getElementById("text2").innerHTML = " fjfgjkdsjkgjds dnkgsnjgsjfksdbjksgdbjksdbsd";
       }
 
 
