@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Sweeping the Circle of Projection</title>
     <style>
       body {
         display: flex;
@@ -46,7 +46,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: lime;
+        background-color: pink;
         border-color: transparent;
         z-index: 1;
       }
@@ -54,8 +54,8 @@
       .compass > .compass-circle,
       .compass > .my-point {
         position: absolute;
-        width: 110%;
-        height: 110%;
+        width: 130%;
+        height: 130%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -124,7 +124,7 @@
   <body>
     <div id="bg"></div>
     <button class="start-btn">Listen</button>
-    <button class="start-btn2">Read</button>
+    <button class="start-btn2" onclick="location.href='index1-4.html'">Read</button>
     <div class="compass">
       <div id="arrow"></div>
       <div class="compass-circle"></div>
@@ -190,7 +190,7 @@
       }
 
       if ( compass > 225) {
-        document.getElementById("arrow").style.backgroundColor = "grey";
+        document.getElementById("arrow").style.backgroundColor = "gray";
 
       }
 
