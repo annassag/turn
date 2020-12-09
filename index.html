@@ -181,7 +181,6 @@
     function init() {
       startBtn.addEventListener("click", startCompass);
       navigator.geolocation.getCurrentPosition(locationHandler);
-      document.getElementById('audio').play();
 
       if (!isIOS) {
         window.addEventListener("deviceorientationabsolute", handler, true);
@@ -189,6 +188,7 @@
     }
 
     function startCompass() {
+      document.getElementById('audio').play();
       if (isIOS) {
         DeviceOrientationEvent.requestPermission()
           .then((response) => {
