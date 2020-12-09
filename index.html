@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                 maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sweeping the Circle of Projection</title>
     <style>
@@ -253,17 +254,23 @@
 
     init();
 
-    document.addEventListener('orientationchange', () => {
-  document.documentElement.style.height = `initial`;
-  setTimeout(() => {
-    document.documentElement.style.height = `100%`;
-      setTimeout(() => {
-        // this line prevents the content
-        // from hiding behind the address bar
-        window.scrollTo(0, 1);
-      }, 500);
-  }, 500);
-});
+window.onorientationchange = function() { 
+
+       let htmlElement =  $("html");
+       let bodyElement = $("body");
+
+       if($(window).innerWidth() < $(window).innerHeight()) {//landscape to portrait
+           htmlElement.css("overflow-x","hidden");
+           bodyElement.css("overflow-x", "hidden");
+        } else {//portrait to landscape
+           htmlElement.css("overflow","auto");
+           bodyElement.css("overflow", "auto");
+           //below 2 lines makes the UI not shrink in portrait mode 
+           htmlElement.css("overflow-x","auto");
+           bodyElement.css("overflow-x", "auto");
+        }
+
+}
 
   // document.addEventListener("click", start);
 
