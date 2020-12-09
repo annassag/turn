@@ -38,9 +38,8 @@
       width: 100vw;
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: top;
+      background-position: bottom;
       overflow: hidden;
-      z-index: -50;
   }
 
       .compass {
@@ -52,11 +51,11 @@
         top: 0%;
       }
 
-/*      .compass > #arrow {
+      .compass > #arrow {
         position: absolute;
         width: 25px;
         height: 25px;
-        top: 0px;
+        top: -20px;
         left: 50%;
         transform: translateX(-50%);
         border-style: solid;
@@ -64,7 +63,7 @@
         background-color: pink;
         border-color: transparent;
         z-index: 10;
-      }*/
+      }
 
       .compass > .compass-circle,
       .compass > .my-point {
@@ -142,15 +141,15 @@
     </style>
   </head>
   <body>
-
-    <button class="start-btn">Swirl</button>
+    <div id="bg"></div>
+    <button class="start-btn">Listen</button>
     <button class="start-btn2" onclick="window.location.href='clock-read.html'">Read</button>
     <div class="compass">
       <div id="arrow"></div>
       <div class="compass-circle"></div>
       <div class="my-point"></div>
     </div>
-      <div id="bg"></div>
+    
   </body>
   <script>
     const compassCircle = document.querySelector(".compass-circle");
