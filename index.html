@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,
                                  maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
     <title>Sweeping the Circle of Projection</title>
     <style>
 
@@ -132,6 +133,22 @@
 
       }
 
+    #text2 {
+    background-color: transparent;
+    height: 60px;
+    padding: 5px 15px;
+    position: fixed;
+/*    filter: blur(1.2px);*/
+    top: 80vh;
+    right: 0;
+    left: 0;
+    font-size: 14px;
+    text-align: center;
+    color: yellow;
+    font-family: 'Work Sans', sans-serif;
+    z-index: 300;
+    }
+
 @font-face {
     font-family: 'Ladyhands';
     src:  url('Ladyhands-Regular.woff2') format('woff2');
@@ -148,6 +165,7 @@
       <div class="compass-circle"></div>
       <div class="my-point"></div>
     </div>
+    <div id="text2"></div>
     
   </body>
   <script>
@@ -186,6 +204,33 @@
       compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
 
       console.log(compass);
+
+      function startBlinkingText() {
+    setInterval(function () { 
+    // calendar();
+    textFunction1();
+    // blink2();
+    }, 5000);
+  }
+
+var i = 0;
+var textBack = [
+"Collecting merchandise from the distribution center and safely transporting materials to the shipping bay", 
+"Receiving and documenting merchandise for delivery or return", 
+"Keeping an inventory of all merchandise entering or exiting the warehouse", 
+"Identifying any missing, lost or damaged materials and immediately notify the supervisor", 
+"Ensuring that all the merchandise is safely and securely packed and labeled for shipping", 
+"Managing all merchandise with appropriate care", 
+"Scanning labels to ensure products are shipped to the right destination"];
+
+function textFunction1() {  
+  if (i >= textBack.length) i = 0;
+   
+  document.getElementById("text2").innerHTML = textBack[i];
+  i++;
+} 
+
+
       
       // if ( compass > 45) {
       //   document.getElementById("arrow").style.backgroundColor = "blue";
@@ -194,6 +239,7 @@
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "white";
+        startBlinkingText();
 
       }
 
@@ -282,6 +328,8 @@ window.onorientationchange = function() {
         }
 
 }
+
+
 
   // document.addEventListener("click", start);
 
