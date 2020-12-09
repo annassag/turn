@@ -61,7 +61,7 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: pink;
+        background-color: yellow;
         border-color: transparent;
         z-index: 1;
       }
@@ -161,6 +161,7 @@
       display: block;
       margin: auto;
       visibility: hidden;
+      transition: opacity 1s ease-out;
   }
 
 @font-face {
@@ -171,7 +172,7 @@
     </style>
   </head>
   <body>
-  <video autoplay loop muted playsinline class="video-background ">
+  <video autoplay loop muted playsinline id="video">
   <source src="film.mp4" type="video/mp4">
   </video>
     <div id="bg"></div>
