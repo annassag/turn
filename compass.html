@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                 maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <title>Sweeping the Circle of Projection</title>
+    <style>
+
+@media screen and (max-width: 600px) { 
+          * {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+}
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+        position: relative;
+        box-sizing: border-box;
+      }
+
+        #bg {
+      background-image: url("clock8.png");
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: top;
+      overflow: hidden;
+  }
+
+      .compass {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        margin: auto;
+        top: -5%;
+      }
+
+      .compass > #arrow {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-style: solid;
+        border-radius: 50%;
+        background-color: #ffd6ec;
+        border-color: transparent;
+        z-index: 1;
+      }
+
+      .compass > .compass-circle,
+      .compass > .my-point {
+        position: absolute;
+        width: 105%;
+        height: 105%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease-out;
+        background: url(clock-1.png)
+        center no-repeat;
+        background-size: contain;
+/*        z-index: 500;*/
+      }
+
+      .compass > .my-point {
+        opacity: 0;
+        width: 20%;
+        height: 20%;
+        background: rgb(8, 223, 69);
+        border-radius: 50%;
+        transition: opacity 0.5s ease-out;
+      }
+
+      .start-btn,
+      .start-btn2 {
+        position: fixed;
+        top: 20px;
+        font-size: 26px;
+        font-family: 'Ladyhands', sans-serif;
+        width: 90px;
+        height: 35px;
+        margin: 0;
+        padding: 3px 0 0 0;
+        text-align: center;
+        text-decoration: none;
+/*        height: 20px;*/
+        border-radius: 50px;
+        border-color: transparent;
+        z-index: 100;
+
+      }
+
+      .start-btn {
+        right: 10px;
+        background-color: grey;
+      }
+
+      .start-btn2 {
+        top: 65px;
+        right: 10px;
+        border: 1.5px solid grey;
+        color: grey;
+        background-color: black;
+
+      }
+
+
+      .start-btn:active,
+      .start-btn:focus,
+      .start-btn2:active,
+      .start-btn2:active, {
+        outline: 0;
+/*        -webkit-box-shadow: none;
+        box-shadow: none;*/
+
+      }
+
+    #text2 {
+    background-color: transparent;
+    height: 60px;
+    padding: 5px 15px;
+    position: fixed;
+/*    filter: blur(1.2px);*/
+    top: 75vh;
+    right: 0;
+    left: 0;
+    font-size: 14px;
+    text-align: center;
+    color: yellow;
+    font-family: 'Work Sans', sans-serif;
+    z-index: 300;
+    }
+
+  #video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      top: -6%;
+      left: 0;
+      z-index: 400;
+      width: 270px;
+      padding: 5px;
+      display: block;
+      margin: auto;
+      opacity: 0;
+      transition: opacity 0.6s ease-in;
+  }
+
+  #textweb {
+    visibility: hidden;
+  }
+
+@font-face {
+    font-family: 'Ladyhands';
+    src:  url('Ladyhands-Regular.woff2') format('woff2');
+}
+
+}
+
+    </style>
+  </head>
+  <body>
+  <video autoplay loop muted playsinline id="video">
+  <source src="film.mp4" type="video/mp4">
+  </video>
+    <div id="bg"></div>
+    <button class="start-btn">Swirl</button>
+    <button class="start-btn2" onclick="window.location.href='read.html'">Read</button>
+    <div class="compass">
+      <div id="arrow"></div>
+      <div class="compass-circle"></div>
+      <div class="my-point"></div>
+    </div>
+    <div id="text2"></div>
+      <audio id="audio" controls style="display:none">
+      <source src="host6.mp3" type="audio/mpeg"> 
+    </audio>
+
+  </body>
+  <script>
+    const compassCircle = document.querySelector(".compass-circle");
+    const myPoint = document.querySelector(".my-point");
+    const startBtn = document.querySelector(".start-btn");
+    const isIOS =
+      navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
+      navigator.userAgent.match(/AppleWebKit/);
+
+    function init() {
+      startBtn.addEventListener("click", startCompass);
+      navigator.geolocation.getCurrentPosition(locationHandler);
+
+      if (!isIOS) {
+        window.addEventListener("deviceorientationabsolute", handler, true);
+      }
+    }
+
+    function startCompass() {
+      document.getElementById('audio').play();
+      if (isIOS) {
+        DeviceOrientationEvent.requestPermission()
+          .then((response) => {
+            if (response === "granted") {
+              window.addEventListener("deviceorientation", handler, true);
+            } else {
+              alert("has to be allowed!");
+            }
+          })
+          .catch(() => alert("not supported"));
+      }
+    }
+
+    function handler(e) {
+      compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+      compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
+
+      console.log(compass);
+
+
+      
+      if ( compass > 45) {
+        document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
+        document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
+        document.getElementById("video").style.opacity = "1";
+      }
+
+      if ( compass > 90) {
+        document.getElementById("arrow").style.backgroundColor = "#DFBBCF";
+        document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
+        document.getElementById("video").style.opacity = "0";
+
+      }
+
+      if ( compass > 135) {
+        document.getElementById("arrow").style.backgroundColor = "#BFA1B1";
+        document.getElementById("text2").innerHTML = "Keeping an inventory of all merchandise entering or exiting the warehouse";
+
+
+      }
+
+      if ( compass > 180) {
+        document.getElementById("arrow").style.backgroundColor = "#9F8694";
+        document.getElementById("text2").innerHTML = "Identifying any missing, lost or damaged materials and immediately notify the supervisor";
+        // document.getElementById("video").style.visibility = "hidden";
+
+      }
+
+      if ( compass > 225) {
+        document.getElementById("arrow").style.backgroundColor = "#806B76";
+        document.getElementById("text2").innerHTML = "Ensuring that all the merchandise is safely and securely packed and labeled for shipping";
+
+      }
+
+      if ( compass > 270) {
+        document.getElementById("arrow").style.backgroundColor = "#605059";
+        document.getElementById("text2").innerHTML = "Scanning labels to ensure products are shipped to the right destination";
+        // document.getElementById("video").style.visibility = "visible";
+
+      }
+
+      if ( compass > 315) {
+        document.getElementById("arrow").style.backgroundColor = "#40363B";
+        document.getElementById("text2").innerHTML = "Bkkl afjkfbasjk djfbgjksb sgnjgksdngjksdfnjksg sgnjksdgnjksd";
+      }
+
+      if ( compass > 360) {
+        document.getElementById("arrow").style.backgroundColor = "#201B1E";
+        document.getElementById("text2").innerHTML = " fjfgjkdsjkgjds dnkgsnjgsjfksdbjksgdbjksdbsd";
+        // document.getElementById("video").style.visibility = "hidden";
+
+      }
+
+
+       }
+
+
+    let pointDegree;
+
+    function locationHandler(position) {
+      const { latitude, longitude } = position.coords;
+      pointDegree = 0;
+
+      if (pointDegree < 0) {
+        pointDegree = pointDegree + 360;
+      }
+    }
+
+    function calcDegreeToPoint(latitude, longitude) {
+      // Qibla geolocation
+      const point = {
+        lat: 21.422487,
+        lng: 39.826206
+      };
+
+      const phiK = (point.lat * Math.PI) / 180.0;
+      const lambdaK = (point.lng * Math.PI) / 180.0;
+      const phi = (latitude * Math.PI) / 180.0;
+      const lambda = (longitude * Math.PI) / 180.0;
+      const psi =
+        (180.0 / Math.PI) *
+        Math.atan2(
+          Math.sin(lambdaK - lambda),
+          Math.cos(phi) * Math.tan(phiK) -
+            Math.sin(phi) * Math.cos(lambdaK - lambda)
+        );
+      return Math.round(psi);
+    }
+
+    init();
+
+window.onorientationchange = function() { 
+
+       let htmlElement =  $("html");
+       let bodyElement = $("body");
+
+       if($(window).innerWidth() < $(window).innerHeight()) {//landscape to portrait
+           htmlElement.css("overflow-x","hidden");
+           bodyElement.css("overflow-x", "hidden");
+        } else {//portrait to landscape
+           htmlElement.css("overflow","auto");
+           bodyElement.css("overflow", "auto");
+           //below 2 lines makes the UI not shrink in portrait mode 
+           htmlElement.css("overflow-x","auto");
+           bodyElement.css("overflow-x", "auto");
+        }
+
+}
+
+
+
+  // document.addEventListener("click", start);
+
+  // function start() {
+  //   var x = document.getElementById("bg"); 
+  //   if (x && x.style) x.style.display = "none";
+  // }
+  </script>
+</html>
