@@ -52,9 +52,10 @@
 
 @media screen and (min-width: 600px) { 
 
-      *, body {
+      body {
         margin: 0;
         background-color: black;
+        pointer-events: none;
       }
 
       #bg {
@@ -94,9 +95,13 @@
 
   document.addEventListener("click", start);
 
+ 
   function start() {
+    if(screen.width < 720){
     window.location.href = "compass.html";
     }
+    }
+
 
 
   </script>
