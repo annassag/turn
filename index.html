@@ -49,7 +49,7 @@
         height: 320px;
         border-radius: 50%;
         margin: auto;
-        top: -2%;
+        top: -5%;
       }
 
       .compass > #arrow {
@@ -161,8 +161,8 @@
       padding: 5px;
       display: block;
       margin: auto;
-      visibility: hidden;
-      transition: opacity 1s ease-out;
+      opacity: 0;
+      transition: opacity 0.6s ease-in;
   }
 
 @font-face {
@@ -233,13 +233,13 @@
       if ( compass > 45) {
         document.getElementById("arrow").style.backgroundColor = "blue";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
-        document.getElementById("video").style.visibility = "visible";
+        document.getElementById("video").style.opacity = "1";
       }
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "white";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
-        document.getElementById("video").style.visibility = "hidden";
+        document.getElementById("video").style.opacity = "0";
 
       }
 
