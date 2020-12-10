@@ -78,7 +78,7 @@
         background: url(clock-1.png)
         center no-repeat;
         background-size: contain;
-        z-index: 500;
+/*        z-index: 500;*/
       }
 
       .compass > .my-point {
@@ -233,20 +233,20 @@
       if ( compass > 45) {
         document.getElementById("arrow").style.backgroundColor = "blue";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
-
+        document.getElementById("video").style.visibility = "visible";
       }
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "white";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
-        document.getElementById("video").style.visibility = "visible";
+        document.getElementById("video").style.visibility = "hidden";
 
       }
 
       if ( compass > 135) {
         document.getElementById("arrow").style.backgroundColor = "green";
         document.getElementById("text2").innerHTML = "Keeping an inventory of all merchandise entering or exiting the warehouse";
-        document.getElementById("video").style.visibility = "hidden";
+
 
       }
 
