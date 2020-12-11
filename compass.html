@@ -66,7 +66,7 @@
         border-style: solid;
         border-radius: 50%;
 /*        background-color: #ffd6ec;*/
-        background-color: red;
+        background-color: yellow;
         border-color: transparent;
         z-index: 1;
       }
@@ -255,7 +255,8 @@ function setNoVolume() {
       if ( compass > 45) {
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
-        setNoVolume();
+        document.getElementById("video").style.opacity = "1";
+        setFullVolume();
 
       }
 
@@ -300,8 +301,7 @@ function setNoVolume() {
       if ( compass > 315) {
         document.getElementById("arrow").style.backgroundColor = "#40363B";
         document.getElementById("text2").innerHTML = "Bkkl afjkfbasjk djfbgjksb sgnjgksdngjksdfnjksg sgnjksdgnjksd";
-        document.getElementById("video").style.opacity = "1";
-        setFullVolume();
+        setNoVolume();
       }
 
       if ( compass > 360) {
