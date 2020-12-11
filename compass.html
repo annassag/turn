@@ -202,14 +202,7 @@
 
   </body>
   <script>
-    var vid = document.getElementById("video");
 
-function setNoVolume() { 
-  vid.volume = 0;
-} 
-  function setFullVolume() { 
-  vid.volume = 1.0;
-} 
     const compassCircle = document.querySelector(".compass-circle");
     const myPoint = document.querySelector(".my-point");
     const startBtn = document.querySelector(".start-btn");
@@ -250,7 +243,14 @@ function setNoVolume() {
 
       console.log(compass);
 
+        var vid = document.getElementById("video");
 
+        function setNoVolume() { 
+          vid.volume = 0;
+        } 
+          function setFullVolume() { 
+          vid.volume = 1.0;
+        } 
       
       if ( compass > 45) {
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
@@ -264,6 +264,7 @@ function setNoVolume() {
         document.getElementById("arrow").style.backgroundColor = "#DFBBCF";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
         setNoVolume();
+        document.getElementById("video").style.opacity = "0";
 
       }
 
@@ -271,14 +272,14 @@ function setNoVolume() {
         document.getElementById("arrow").style.backgroundColor = "#BFA1B1";
         document.getElementById("text2").innerHTML = "Keeping an inventory of all merchandise entering or exiting the warehouse";
         setNoVolume();
-
+        document.getElementById("video").style.opacity = "0";
 
       }
 
       if ( compass > 180) {
         document.getElementById("arrow").style.backgroundColor = "#9F8694";
         document.getElementById("text2").innerHTML = "Identifying any missing, lost or damaged materials and immediately notify the supervisor";
-        // document.getElementById("video").style.visibility = "hidden";
+        document.getElementById("video").style.opacity = "0";
         setNoVolume();
 
       }
@@ -287,13 +288,13 @@ function setNoVolume() {
         document.getElementById("arrow").style.backgroundColor = "#806B76";
         document.getElementById("text2").innerHTML = "Ensuring that all the merchandise is safely and securely packed and labeled for shipping";
         setNoVolume();
-
+        document.getElementById("video").style.opacity = "0";
       }
 
       if ( compass > 270) {
         document.getElementById("arrow").style.backgroundColor = "#605059";
         document.getElementById("text2").innerHTML = "Scanning labels to ensure products are shipped to the right destination";
-        // document.getElementById("video").style.visibility = "visible";
+        document.getElementById("video").style.opacity = "0";
         setNoVolume();
 
       }
@@ -302,12 +303,12 @@ function setNoVolume() {
         document.getElementById("arrow").style.backgroundColor = "#40363B";
         document.getElementById("text2").innerHTML = "Bkkl afjkfbasjk djfbgjksb sgnjgksdngjksdfnjksg sgnjksdgnjksd";
         setNoVolume();
+        document.getElementById("video").style.opacity = "0";
       }
 
       if ( compass > 360) {
         document.getElementById("arrow").style.backgroundColor = "#201B1E";
         document.getElementById("text2").innerHTML = "fjfgjkdsjkgjds dnkgsnjgsjfksdbjksgdbjksdbsd";
-        // document.getElementById("video").style.visibility = "hidden";
         document.getElementById("video").style.opacity = "0";
         setNoVolume();
 
