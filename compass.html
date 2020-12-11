@@ -66,7 +66,7 @@
         border-style: solid;
         border-radius: 50%;
         background-color: #ffd6ec;
-        background-color: yellow;
+        background-color: white;
         border-color: transparent;
         z-index: 1;
       }
@@ -231,10 +231,10 @@
       document.getElementById('video').play();
       var x = document.getElementById("video");
 
-      // function low() { 
-      //   x.volume = 0.1;
-      // } 
-      // low();
+      function low() { 
+        x.volume = 0;
+      } 
+      low();
 // function full() { 
 //   x.volume = 1.0;
 // }
