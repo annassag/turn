@@ -66,7 +66,7 @@
         border-style: solid;
         border-radius: 50%;
         background-color: #ffd6ec;
-        background-color: blue;
+        background-color: white;
         border-color: transparent;
         z-index: 1;
       }
@@ -222,8 +222,18 @@
     function startCompass() {
       document.getElementById('audio').play();
       document.getElementById('video').play();
-      document.getElementById("video").volume = 0;
 
+var x = document.getElementById("video");
+
+function low() { 
+  x.volume = 0.1;
+} 
+
+function full() { 
+  x.volume = 1.0;
+}
+
+low();
 
       if (isIOS) {
         DeviceOrientationEvent.requestPermission()
@@ -250,21 +260,21 @@
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
         document.getElementById("video").style.opacity = "1";
-      document.getElementById("video").volume = 0;
+        full();
       }
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "#DFBBCF";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
         document.getElementById("video").style.opacity = "0";
-      document.getElementById("video").volume = 0;
+      // document.getElementById("video").volume = 0;
         document.getElementById("video").style.opacity = "0";
       }
 
       if ( compass > 135) {
         document.getElementById("arrow").style.backgroundColor = "#BFA1B1";
         document.getElementById("text2").innerHTML = "Keeping an inventory of all merchandise entering or exiting the warehouse";
-      document.getElementById("video").volume = 0;
+      // document.getElementById("video").volume = 0;
         document.getElementById("video").style.opacity = "0";
 
       }
@@ -273,14 +283,14 @@
         document.getElementById("arrow").style.backgroundColor = "#9F8694";
         document.getElementById("text2").innerHTML = "Identifying any missing, lost or damaged materials and immediately notify the supervisor";
         // document.getElementById("video").style.visibility = "hidden";
-      document.getElementById("video").volume = 0;
+      // document.getElementById("video").volume = 0;
         document.getElementById("video").style.opacity = "0";
       }
 
       if ( compass > 225) {
         document.getElementById("arrow").style.backgroundColor = "#806B76";
         document.getElementById("text2").innerHTML = "Ensuring that all the merchandise is safely and securely packed and labeled for shipping";
-      document.getElementById("video").volume = 0;
+      // document.getElementById("video").volume = 0;
         document.getElementById("video").style.opacity = "0";
       }
 
@@ -288,14 +298,14 @@
         document.getElementById("arrow").style.backgroundColor = "#605059";
         document.getElementById("text2").innerHTML = "Scanning labels to ensure products are shipped to the right destination";
         // document.getElementById("video").style.visibility = "visible";
-      document.getElementById("video").volume = 0;
+      // document.getElementById("video").volume = 0;
         document.getElementById("video").style.opacity = "0";
       }
 
       if ( compass > 315) {
         document.getElementById("arrow").style.backgroundColor = "#40363B";
         document.getElementById("text2").innerHTML = "Bkkl afjkfbasjk djfbgjksb sgnjgksdngjksdfnjksg sgnjksdgnjksd";
-      document.getElementById("video").volume = 0;
+      // document.getElementById("video").volume = 0;
         document.getElementById("video").style.opacity = "0";
       }
 
@@ -303,7 +313,7 @@
         document.getElementById("arrow").style.backgroundColor = "#201B1E";
         document.getElementById("text2").innerHTML = "fjfgjkdsjkgjds dnkgsnjgsjfksdbjksgdbjksdbsd";
         // document.getElementById("video").style.visibility = "hidden";
-      document.getElementById("video").volume = 0;
+      // document.getElementById("video").volume = 0;
         document.getElementById("video").style.opacity = "0";
 
       }
