@@ -66,7 +66,7 @@
         border-style: solid;
         border-radius: 50%;
         background-color: #ffd6ec;
-        background-color: blue;
+        background-color: green;
         border-color: transparent;
         z-index: 1;
       }
@@ -226,7 +226,7 @@
 var x = document.getElementById("video");
 
 function low() { 
-  x.volume = 0.1;
+  x.volume = 0;
 } 
 
 function full() { 
@@ -260,6 +260,7 @@ low();
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
         document.getElementById("video").style.opacity = "1";
+
         var x = document.getElementById("video");
         function full() { 
         x.volume = 1.0;
@@ -275,7 +276,7 @@ low();
         document.getElementById("video").style.opacity = "0";
         var x = document.getElementById("video");
         function low2() { 
-        x.volume = 0.1;
+        x.volume = 0;
         }
         low2();
       }
