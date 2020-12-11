@@ -66,7 +66,7 @@
         border-style: solid;
         border-radius: 50%;
 /*        background-color: #ffd6ec;*/
-        background-color: lime;
+        background-color: purple;
         border-color: transparent;
         z-index: 1;
       }
@@ -249,14 +249,14 @@
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
         document.getElementById("video").style.opacity = "1";
-        document.getElementById("video").volume = 0;
+        document.getElementById("video").volume = 1;
       }
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "#DFBBCF";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
         document.getElementById("video").style.opacity = "0";
-        document.getElementById("video").volume = 1;
+        document.getElementById("video").volume = 0;
       }
 
       if ( compass > 135) {
