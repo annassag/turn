@@ -165,8 +165,8 @@
       padding: 5px;
       display: block;
       margin: auto;
-      opacity: 1;
-      transition: opacity 0.6s ease-in;
+      opacity: 0;
+      transition: opacity 1s ease-in;
   }
 
   #textweb {
@@ -201,6 +201,14 @@
 
   </body>
   <script>
+    var vid = document.getElementById("video");
+
+function setNoVolume() { 
+  vid.volume = 0;
+} 
+  function setFullVolume() { 
+  vid.volume = 1.0;
+} 
     const compassCircle = document.querySelector(".compass-circle");
     const myPoint = document.querySelector(".my-point");
     const startBtn = document.querySelector(".start-btn");
@@ -220,6 +228,7 @@
     function startCompass() {
       document.getElementById('audio').play();
       document.getElementById('video').play();
+      setNoVolume();
 
       if (isIOS) {
         DeviceOrientationEvent.requestPermission()
@@ -246,13 +255,14 @@
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
         document.getElementById("video").style.opacity = "1";
+        setFullVolume();
       }
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "#DFBBCF";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
         document.getElementById("video").style.opacity = "0";
-
+        setNoVolume();
       }
 
       if ( compass > 135) {
