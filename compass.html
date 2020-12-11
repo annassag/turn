@@ -65,7 +65,8 @@
         transform: translateX(-50%);
         border-style: solid;
         border-radius: 50%;
-        background-color: #ffd6ec;
+/*        background-color: #ffd6ec;*/
+        background-color: red;
         border-color: transparent;
         z-index: 1;
       }
@@ -85,14 +86,14 @@
 /*        z-index: 500;*/
       }
 
-/*      .compass > .my-point {
+      .compass > .my-point {
         opacity: 0;
         width: 20%;
         height: 20%;
-        background: rgb(8, 223, 69);
+        background: transparent;
         border-radius: 50%;
         transition: opacity 0.5s ease-out;
-      }*/
+      }
 
       .start-btn,
       .start-btn2 {
@@ -254,18 +255,21 @@ function setNoVolume() {
       if ( compass > 45) {
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
         document.getElementById("text2").innerHTML = "Collecting merchandise from the distribution center and safely transporting materials to the shipping bay";
+        setNoVolume();
 
       }
 
       if ( compass > 90) {
         document.getElementById("arrow").style.backgroundColor = "#DFBBCF";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
+        setNoVolume();
 
       }
 
       if ( compass > 135) {
         document.getElementById("arrow").style.backgroundColor = "#BFA1B1";
         document.getElementById("text2").innerHTML = "Keeping an inventory of all merchandise entering or exiting the warehouse";
+        setNoVolume();
 
 
       }
@@ -274,12 +278,14 @@ function setNoVolume() {
         document.getElementById("arrow").style.backgroundColor = "#9F8694";
         document.getElementById("text2").innerHTML = "Identifying any missing, lost or damaged materials and immediately notify the supervisor";
         // document.getElementById("video").style.visibility = "hidden";
+        setNoVolume();
 
       }
 
       if ( compass > 225) {
         document.getElementById("arrow").style.backgroundColor = "#806B76";
         document.getElementById("text2").innerHTML = "Ensuring that all the merchandise is safely and securely packed and labeled for shipping";
+        setNoVolume();
 
       }
 
@@ -287,6 +293,7 @@ function setNoVolume() {
         document.getElementById("arrow").style.backgroundColor = "#605059";
         document.getElementById("text2").innerHTML = "Scanning labels to ensure products are shipped to the right destination";
         // document.getElementById("video").style.visibility = "visible";
+        setNoVolume();
 
       }
 
