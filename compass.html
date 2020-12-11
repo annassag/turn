@@ -66,7 +66,7 @@
         border-style: solid;
         border-radius: 50%;
 /*        background-color: #ffd6ec;*/
-        background-color: blue;
+        background-color: white;
         border-color: transparent;
         z-index: 1;
       }
@@ -203,6 +203,15 @@
   </body>
   <script>
 
+            var vid = document.getElementById("video");
+
+        function setNoVolume() { 
+          vid.volume = 0;
+        } 
+          function setFullVolume() { 
+          vid.volume = 1.0;
+        } 
+
     const compassCircle = document.querySelector(".compass-circle");
     const myPoint = document.querySelector(".my-point");
     const startBtn = document.querySelector(".start-btn");
@@ -243,14 +252,7 @@
 
       console.log(compass);
 
-        var vid = document.getElementById("video");
 
-        function setNoVolume() { 
-          vid.volume = 0;
-        } 
-          function setFullVolume() { 
-          vid.volume = 1.0;
-        } 
       
       if ( compass > 45) {
         document.getElementById("arrow").style.backgroundColor = "#FFD6EC";
