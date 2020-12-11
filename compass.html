@@ -66,7 +66,7 @@
         border-style: solid;
         border-radius: 50%;
         background-color: #ffd6ec;
-        background-color: white;
+        background-color: red;
         border-color: transparent;
         z-index: 1;
       }
@@ -229,15 +229,8 @@
     function startCompass() {
       document.getElementById('audio').play();
       document.getElementById('video').play();
-      var x = document.getElementById("video");
+      document.getElementById("video").volume = 0;
 
-      function low() { 
-        x.volume = 0;
-      } 
-      low();
-// function full() { 
-//   x.volume = 1.0;
-// }
 
 
       if (isIOS) {
