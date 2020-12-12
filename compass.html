@@ -185,6 +185,7 @@
 
   * {
     display: none;
+    background-color: black;
   }
 
   video {
@@ -194,8 +195,8 @@
     </style>
   </head>
   <body>
-  <video loop muted playsinline id="video">
-  <source src="film_4.mp4" type="video/mp4">
+  <video autoplay loop muted playsinline id="video">
+  <source src="film_3.mp4" type="video/mp4">
   </video>
     <div id="bg"></div>
     <button class="start-btn">Swirl</button>
@@ -231,6 +232,7 @@
     function startCompass() {
       document.getElementById('video').play();
         document.getElementById('audio').play();
+
       if (isIOS) {
         DeviceOrientationEvent.requestPermission()
           .then((response) => {
@@ -262,7 +264,6 @@
         document.getElementById("arrow").style.backgroundColor = "#DFBBCF";
         document.getElementById("text2").innerHTML = "Receiving and documenting merchandise for delivery or return";
         document.getElementById("video").style.opacity = "0";
-        document.getElementById('audio').play();
       }
 
       if ( compass > 135) {
