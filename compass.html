@@ -194,8 +194,8 @@
     </style>
   </head>
   <body>
-  <video loop playsinline id="video">
-  <source src="film_3.mp4" type="video/mp4">
+  <video loop muted playsinline id="video">
+  <source src="film_4.mp4" type="video/mp4">
   </video>
     <div id="bg"></div>
     <button class="start-btn">Swirl</button>
@@ -229,7 +229,7 @@
     }
 
     function startCompass() {
-      // document.getElementById('video').play();
+      document.getElementById('video').play();
         document.getElementById('audio').play();
       if (isIOS) {
         DeviceOrientationEvent.requestPermission()
